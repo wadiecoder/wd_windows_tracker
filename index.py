@@ -2,6 +2,8 @@ import tkinter as tk
 from pynput import keyboard, mouse
 from datetime import datetime
 from threading import Thread
+import webbrowser
+
 
 '''
 Define the name of the log file
@@ -92,9 +94,9 @@ def on_scroll(x, y, dx, dy):
 
 
 root = tk.Tk()
-root.title("Activity Logger By Wadie Coder")
+root.title("WD windows tracker")
 root.geometry("300x150")
-
+root.resizable(False, False)
 keyboard_listener = None
 mouse_listener = None
 
@@ -112,6 +114,10 @@ def start_logging():
     mouse_listener = mouse.Listener(on_move=on_move, on_click=on_click, on_scroll=on_scroll)
     Thread(target=keyboard_listener.start).start()
     Thread(target=mouse_listener.start).start()
+    
+    # hide the start button and show the other
+    start_button.pack_forget()
+    stop_button.pack(pady=10)
 
 """
     Stops the keyboard and mouse listeners and writes the logged activities to the log file.
@@ -127,12 +133,21 @@ def stop_logging():
         mouse_listener.stop()
 
     write_log_to_file()
-
+    
+    # the opposite
+    stop_button.pack_forget()
+    start_button.pack(pady=10)
+    
+def open_website(event):
+    webbrowser.open("https://wadiecoder.com")
+    
 start_button = tk.Button(root, text="Start Logging", command=start_logging, bg="green", fg="white")
-stop_button = tk.Button(root, text="Stop Logging", command=stop_logging, bg="red", fg="white")
 stop_button = tk.Button(root, text="Stop Logging", command=stop_logging, bg="red", fg="white")
 
 start_button.pack(pady=10)
-stop_button.pack(pady=10)
+
+credit_label = tk.Label(root, text="Made by Wadie Coder © "+ str(datetime.now().year), fg="blue", cursor="hand2")
+credit_label.pack(side="bottom",pady=10)
+credit_label.bind("<Button-1>", open_website)
 
 root.mainloop()

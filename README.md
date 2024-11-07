@@ -2,6 +2,10 @@
 
 **WD Windows Tracker (beta)** is a simple application designed to record user actions on your Windows laptop. Whether you're stepping away for a moment or leaving your device unattended, this application helps you monitor any activities that occur in your absence.
 
+## UI Screenshot
+
+![UI Screenshot](assets/ui_screenshot.png)
+
 ## Why Use WD Windows Tracker?
 
 I created this application because it is *mon besoin* (my need), and I couldn't find an app that did exactly what I wanted. By making it open source, I hope it can be enhanced by the community and become even more powerful and user-friendly. If you ever leave your laptop and worry that someone might touch it or access your files, WD Windows Tracker is the perfect solution for you. It captures all keyboard and mouse activities, providing a log of actions that you can review later. This is particularly useful for maintaining your privacy and security.
