@@ -130,7 +130,7 @@ def stop_logging():
 
 start_button = tk.Button(root, text="Start Logging", command=start_logging, bg="green", fg="white")
 stop_button = tk.Button(root, text="Stop Logging", command=stop_logging, bg="red", fg="white")
-stop_button = tk.se(root, text="Stop Logging", command=stop_logging, bg="red", fg="white")
+stop_button = tk.Button(root, text="Stop Logging", command=stop_logging, bg="red", fg="white")
 
 start_button.pack(pady=10)
 stop_button.pack(pady=10)
