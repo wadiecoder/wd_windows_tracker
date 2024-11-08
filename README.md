@@ -4,7 +4,10 @@
 
 ## UI Screenshot
 
-![UI Screenshot](assets/ui_screenshot.png)
+<p align="center">
+  <img src="assets/ui_screenshot.png" alt="UI Screenshot" />
+</p>
+
 
 ## Why Use WD Windows Tracker?
 
@@ -26,10 +29,11 @@ You have two options for running the application:
 2. **Install Required Packages**: Make sure you have `pynput` and `tkinter` installed. You can install `pynput` using pip:
    ```bash
    pip install pynput
+   pip install customtkinter
    ```
 3. **Run the Script**: Navigate to the directory containing the script and run it:
    ```bash
-   python your_script.py
+   python index.py
    ```
 
 ### Option 2: Use the Downloadable Executable
@@ -56,6 +60,9 @@ This is the first version of WD Windows Tracker, and we plan to add more feature
 ## Made with Love By wadie coder
 
 This application was created with passion and care by [wadiecoder.com](https://www.wadiecoder.com).
+
+##contact me via gmail
+wadie@wadiecoder.com
 
 ## Follow me on Instagram:
 https://www.instagram.com/wadie.coder/

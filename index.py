@@ -1,4 +1,4 @@
-import tkinter as tk
+import customtkinter as ctk
 from pynput import keyboard, mouse
 from datetime import datetime
 from threading import Thread
@@ -93,12 +93,17 @@ def on_scroll(x, y, dx, dy):
     log_activity("Mouse Scroll", f"({dx}, {dy}) at ({x}, {y})")
 
 
-root = tk.Tk()
+root = ctk.CTk()
 root.title("WD windows tracker")
 root.geometry("300x150")
 root.resizable(False, False)
 keyboard_listener = None
 mouse_listener = None
+
+# theme setting
+
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
 
 """
     Initializes and starts the keyboard and mouse listeners in separate threads.
@@ -141,12 +146,12 @@ def stop_logging():
 def open_website(event):
     webbrowser.open("https://wadiecoder.com")
     
-start_button = tk.Button(root, text="Start Logging", command=start_logging, bg="green", fg="white")
-stop_button = tk.Button(root, text="Stop Logging", command=stop_logging, bg="red", fg="white")
+start_button = ctk.CTkButton(root, text="Start Logging", command=start_logging,  fg_color="green")
+stop_button = ctk.CTkButton(root, text="Stop Logging", command=stop_logging,  fg_color="red")
 
 start_button.pack(pady=10)
 
-credit_label = tk.Label(root, text="Made by Wadie Coder © "+ str(datetime.now().year), fg="blue", cursor="hand2")
+credit_label = ctk.CTkLabel(root, text="Made by Wadie Coder © "+ str(datetime.now().year), text_color="blue", cursor="hand2")
 credit_label.pack(side="bottom",pady=10)
 credit_label.bind("<Button-1>", open_website)
 
