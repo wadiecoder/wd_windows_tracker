@@ -5,8 +5,7 @@ from threading import Thread
 import webbrowser
 
 
-'''
-Define the name of the log file
+'''WD: Define the name of the log file
 where the activities will be recorded
 '''
 log_file = "activity_log.txt"
@@ -14,9 +13,7 @@ log_file = "activity_log.txt"
 
 activity_log = []
 
-"""
-    Logs an activity with a timestamp.
-
+"""WD: Logs an activity with a timestamp.
     Args:
         action (str): A description of the action performed (e.g., "Key Press", "Mouse Click").
         detail (str, optional): Additional details about the action (e.g., which key was pressed).
@@ -25,8 +22,7 @@ def log_activity(action, detail=""):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     activity_log.append(f"[{timestamp}] {action}: {detail}")
 
-"""
-    Writes the logged activities to a specified log file in reverse order.
+"""WD: Writes the logged activities to a specified log file in reverse order.
 
     This function opens the log file in write mode and iterates over the
     activity_log list in reverse, writing each entry to the file. The 
@@ -38,8 +34,7 @@ def write_log_to_file():
         for entry in reversed(activity_log):
             f.write(f"{entry}\n")
 
-"""
-    Handles keyboard key press events.
+"""WD: Handles keyboard key press events.
     Args:
         key (Key): The key that was pressed.
     This function attempts to log the pressed key as a character. If the key 
@@ -51,8 +46,7 @@ def on_key_press(key):
     except AttributeError:
         log_activity("Special Key Press", str(key))
 
-"""
-    Handles mouse move events.
+"""WD: Handles mouse move events.
 
     Args:
         x (int): The x-coordinate of the mouse pointer.
@@ -63,8 +57,7 @@ def on_key_press(key):
 def on_move(x, y):
     log_activity("Mouse Move", f"({x}, {y})")
 
-"""
-    Handles mouse click events.
+"""WD: Handles mouse click events.
 
     Args:
         x (int): The x-coordinate where the mouse was clicked.
@@ -78,9 +71,7 @@ def on_click(x, y, button, pressed):
     action = "Mouse Click Pressed" if pressed else "Mouse Click Released"
     log_activity(action, f"{button} at ({x}, {y})")
 
-"""
-    Handles mouse scroll events.
-
+"""WD: Handles mouse scroll events.
     Args:
         x (int): The x-coordinate of the mouse during the scroll.
         y (int): The y-coordinate of the mouse during the scroll.
@@ -100,14 +91,10 @@ root.resizable(False, False)
 keyboard_listener = None
 mouse_listener = None
 
-# theme setting
-
-ctk.set_appearance_mode("dark")
+ctk.set_appearance_mode("white")
 ctk.set_default_color_theme("blue")
 
-"""
-    Initializes and starts the keyboard and mouse listeners in separate threads.
-    
+"""WD: Initializes and starts the keyboard and mouse listeners in separate threads.
     This function creates instances of the keyboard and mouse listeners, 
     associating their events with the corresponding handler functions. 
     The listeners are then started in separate threads to allow them 
@@ -124,8 +111,7 @@ def start_logging():
     start_button.pack_forget()
     stop_button.pack(pady=10)
 
-"""
-    Stops the keyboard and mouse listeners and writes the logged activities to the log file.
+"""WD: Stops the keyboard and mouse listeners and writes the logged activities to the log file.
 
     This function checks if the listeners are active, stops them, 
     and then calls the function to write the logged activities to the log file.
@@ -138,8 +124,6 @@ def stop_logging():
         mouse_listener.stop()
 
     write_log_to_file()
-    
-    # the opposite
     stop_button.pack_forget()
     start_button.pack(pady=10)
     
@@ -148,7 +132,8 @@ def open_website(event):
     
 start_button = ctk.CTkButton(root, text="Start Logging", command=start_logging,  fg_color="green")
 stop_button = ctk.CTkButton(root, text="Stop Logging", command=stop_logging,  fg_color="red")
-
+label = ctk.CTkLabel(root, text="📢: You will find the logs in the activity_log.txt file", text_color="black", cursor="hand2")
+label.pack(pady=10)
 start_button.pack(pady=10)
 
 credit_label = ctk.CTkLabel(root, text="Made by Wadie Coder © "+ str(datetime.now().year), text_color="blue", cursor="hand2")

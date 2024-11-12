@@ -33,26 +33,8 @@ You have two options for running the application:
    ```
 3. **Run the Script**: Navigate to the directory containing the script and run it:
    ```bash
-   python index.py
+   python activity_logger_with_gui.py
    ```
-
-### Option 2: Use the Downloadable Executable
-
-If you prefer to run a standalone executable, you can create one using `pyinstaller`. Follow these steps:
-
-1. **Install PyInstaller**:
-   ```bash
-   pip install pyinstaller
-   ```
-2. **Create the Executable**:
-   Navigate to the directory of your script and run:
-   ```bash
-   pyinstaller --onefile --windowed your_script.py 
-   ```
-   This will create an executable in the `dist` folder.
-
-Simply double-click the generated `WD Windows Tracker.exe` file to run the application without needing to install Python or any dependencies.
-
 ## Future Improvements
 
 This is the first version of WD Windows Tracker, and we plan to add more features in future updates to enhance functionality and user experience.
